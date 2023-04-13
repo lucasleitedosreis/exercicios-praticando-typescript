@@ -1,5 +1,5 @@
 import moedaParanumero from "./moedaParaNumero.js";
-import stringToDate from "./stringToDate.js";
+import stringToDate from "./stringToDate";
 
 //delcarando como global
 //----------------------------------------------------------------
