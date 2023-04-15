@@ -3,16 +3,6 @@ body {
   color: #000000;
   font-size: 1.2rem;
 }
-h2,
-p {
-  margin-left: 1rem;
-}
-h2 {
-  border-top: 6px solid rgb(194, 194, 194);
-}
-div {
-  border-top: 3px solid rgb(194, 194, 194);
-}
 table {
   border-spacing: 0;
   text-align: left;
@@ -23,5 +13,4 @@ table th {
 }
 table tr:nth-child(even) {
   background-color: rgb(194, 194, 194);
-  padding-top: 1rem;
 }

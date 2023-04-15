@@ -38,11 +38,10 @@ function preencherTabela(transacoes: Transacao[]): void {
   const tabela = document.querySelector("#tabela tbody");
   if (!tabela) return;
   transacoes.forEach((transacao) => {
-    tabela.innerHTML += `
+    tabela.innerHtml += `
     <tr>
       <td>${transacao.nome}</td>
       <td>${transacao.email}</td>
-      <td>R$: ${transacao.moeda}</td>
       <td>${transacao.pagamento}</td>
       <td>${transacao.status}</td>
     </tr>

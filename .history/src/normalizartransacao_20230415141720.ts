@@ -24,7 +24,7 @@ declare global {
   interface Transacao {
     nome: string;
     id: number;
-    data: Date;
+    data: string;
     status: TransacaoStatus;
     email: string;
     moeda: string;
@@ -37,9 +37,7 @@ declare global {
 //faz a normalização da Api
 //----------------------------------------------------------------
 
-export default function normalizarTransacao(
-  transacao: TransacaoApi
-): Transacao {
+export default function normalizarTransacao(transacao: TransacaoApi) {
   return {
     nome: transacao.Nome,
     id: transacao.ID,

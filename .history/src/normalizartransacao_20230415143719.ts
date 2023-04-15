@@ -24,7 +24,7 @@ declare global {
   interface Transacao {
     nome: string;
     id: number;
-    data: Date;
+    data: string;
     status: TransacaoStatus;
     email: string;
     moeda: string;

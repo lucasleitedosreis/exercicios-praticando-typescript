@@ -1,0 +1,12 @@
+body {
+  background: #fefefe;
+  color: #000000;
+}
+table {
+  border-spacing: 0;
+  text-align: left;
+}
+table td,
+table th {
+  padding: 0.5rem, 1rem;
+}

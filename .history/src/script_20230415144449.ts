@@ -31,23 +31,13 @@ async function handleData() {
     "https://api.origamid.dev/json/transacoes.json?"
   );
   if (!data) return;
-  const transacoes = data.map(normalizarTransacao);
-  preencherTabela(transacoes);
+  const transacao = data.map(normalizarTransacao);
+  preencherTabela(transacao);
 }
-function preencherTabela(transacoes: Transacao[]): void {
+function preencherTabela(transacao: Transacao[]): void {
   const tabela = document.querySelector("#tabela tbody");
   if (!tabela) return;
-  transacoes.forEach((transacao) => {
-    tabela.innerHTML += `
-    <tr>
-      <td>${transacao.nome}</td>
-      <td>${transacao.email}</td>
-      <td>R$: ${transacao.moeda}</td>
-      <td>${transacao.pagamento}</td>
-      <td>${transacao.status}</td>
-    </tr>
-    `;
-  });
+  transacao.forEach((item) => {});
 }
 
 handleData();
