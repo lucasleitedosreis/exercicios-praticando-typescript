@@ -63,8 +63,7 @@ function preencherEstatisticas(transacoes: Transacao[]): void {
   const totalElement = document.querySelector<HTMLElement>("#total span");
   if (totalElement) {
     totalElement.innerText = data.total.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
+      style: "currnecy",
     });
   }
 }

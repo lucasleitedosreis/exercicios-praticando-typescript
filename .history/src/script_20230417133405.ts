@@ -35,7 +35,7 @@ async function handleData() {
   //Faz a nomralização através da função normalizarTransacao
   const transacoes = data.map(normalizarTransacao);
   preencherTabela(transacoes);
-  preencherEstatisticas(transacoes);
+  somarVendas(transacoes);
 }
 
 //----------------------------------------------------------------
@@ -59,12 +59,5 @@ function preencherTabela(transacoes: Transacao[]): void {
 handleData();
 
 function preencherEstatisticas(transacoes: Transacao[]): void {
-  const data = new Estatisticas(transacoes);
-  const totalElement = document.querySelector<HTMLElement>("#total span");
-  if (totalElement) {
-    totalElement.innerText = data.total.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-  }
+  Estatisticas;
 }

@@ -60,11 +60,6 @@ handleData();
 
 function preencherEstatisticas(transacoes: Transacao[]): void {
   const data = new Estatisticas(transacoes);
-  const totalElement = document.querySelector<HTMLElement>("#total span");
-  if (totalElement) {
-    totalElement.innerText = data.total.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-  }
+  console.log(data.total);
+  const total = document.getElementById<HTMLElement>("total span");
 }

@@ -21,7 +21,6 @@
 
 // 6 - Normalize os dados da API se achar necessário.
 
-import Estatisticas from "./Estatisticas.js";
 import fetchData from "./fetchData.js";
 import normalizarTransacao from "./normalizartransacao.js";
 
@@ -34,8 +33,8 @@ async function handleData() {
   if (!data) return;
   //Faz a nomralização através da função normalizarTransacao
   const transacoes = data.map(normalizarTransacao);
+  console.log(transacoes);
   preencherTabela(transacoes);
-  preencherEstatisticas(transacoes);
 }
 
 //----------------------------------------------------------------
@@ -57,14 +56,3 @@ function preencherTabela(transacoes: Transacao[]): void {
 }
 
 handleData();
-
-function preencherEstatisticas(transacoes: Transacao[]): void {
-  const data = new Estatisticas(transacoes);
-  const totalElement = document.querySelector<HTMLElement>("#total span");
-  if (totalElement) {
-    totalElement.innerText = data.total.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-    });
-  }
-}
