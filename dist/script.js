@@ -26,6 +26,14 @@ function preencherTabela(transacoes) {
     });
 }
 handleData();
+function preencherLista(lista, containerId) {
+    const containerElement = document.getElementById(containerId);
+    if (containerElement) {
+        Object.keys(lista).forEach((key) => {
+            containerElement.innerHTML += `<p>${key}: ${lista[key]}</p>`;
+        });
+    }
+}
 function preencherEstatisticas(transacoes) {
     const data = new Estatisticas(transacoes);
     const totalElement = document.querySelector("#total span");
@@ -35,5 +43,7 @@ function preencherEstatisticas(transacoes) {
             currency: "BRL",
         });
     }
+    preencherLista(data.pagamento, "pagamentos");
+    preencherLista(data.status, "status");
 }
 //# sourceMappingURL=script.js.map

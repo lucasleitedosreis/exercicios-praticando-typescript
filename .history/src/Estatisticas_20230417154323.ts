@@ -22,15 +22,13 @@ export default class Estatisticas {
       return acc + valorAtual.valor;
     }, 0);
   }
-
-  //------------------------------------------------------------------------
-  //retorna as formas de pagamento e faz a soma de cada tipo usando o método countBy
   private setPagamento() {
-    return countBy(this.transacoes.map(({ pagamento }) => pagamento));
+    //retorna as formas de pagamento
+    const pagamentos = this.transacoes.map(({ pagamento }) => pagamento);
+
+    //retorna o total de cada tipo de pagamento
+    const total = countBy(pagamentos);
+    console.log(total);
   }
-  //------------------------------------------------------------------------
-  //retorna os status de pagamento e faz a soma de cada tipo usando o método countBy
-  private setStatus() {
-    return countBy(this.transacoes.map(({ status }) => status));
-  }
+  private setStatus() {}
 }

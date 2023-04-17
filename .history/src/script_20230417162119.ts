@@ -83,6 +83,6 @@ function preencherEstatisticas(transacoes: Transacao[]): void {
   // Tipos de pagamentos
   preencherLista(data.pagamento, "pagamentos");
   //----------------------------------------------------------------
-  // Tipos de status
+  // Tipos de pagamentos
   preencherLista(data.status, "status");
 }

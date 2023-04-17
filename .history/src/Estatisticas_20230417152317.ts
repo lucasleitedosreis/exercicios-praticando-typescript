@@ -1,5 +1,3 @@
-import countBy from "./countBy.js";
-
 // faz uma cópia da interface e modifica o valor
 type TransacaoValor = Transacao & { valor: number };
 
@@ -22,15 +20,23 @@ export default class Estatisticas {
       return acc + valorAtual.valor;
     }, 0);
   }
-
-  //------------------------------------------------------------------------
-  //retorna as formas de pagamento e faz a soma de cada tipo usando o método countBy
   private setPagamento() {
-    return countBy(this.transacoes.map(({ pagamento }) => pagamento));
+    interface CountList {
+      [key: string]: number;
+    }
+    //retorna as formas de pagamento
+    const pagamentos = this.transacoes.map(({ pagamento }) => pagamento);
+
+    //retorna o total de cada tipo de pagamento
+    const total = pagamentos.reduce((acc: CountList, item) => {
+      if (acc[item]) {
+        acc[item] += 1;
+      } else {
+        acc[item] = 1;
+      }
+      return acc;
+    }, {});
+    console.log(total);
   }
-  //------------------------------------------------------------------------
-  //retorna os status de pagamento e faz a soma de cada tipo usando o método countBy
-  private setStatus() {
-    return countBy(this.transacoes.map(({ status }) => status));
-  }
+  private setStatus() {}
 }

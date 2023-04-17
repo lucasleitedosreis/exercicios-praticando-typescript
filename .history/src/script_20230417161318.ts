@@ -58,12 +58,12 @@ function preencherTabela(transacoes: Transacao[]): void {
 }
 
 handleData();
-//função generica para preencher os dados na tela
-function preencherLista(lista: CountList, containerId: string): void {
-  const containerElement = document.getElementById(containerId);
-  if (containerElement) {
-    Object.keys(lista).forEach((key) => {
-      containerElement.innerHTML += `<p>${key}: ${lista[key]}</p>`;
+function preencherLista(lista: CountList, counterId: string): void {
+  if (pagamentoElement) {
+    //----------------------------------------------------------------
+    //retorna as chaves e faz um loop por elas
+    Object.keys(data.pagamento).forEach((key) => {
+      pagamentoElement.innerHTML += `<p>${key}: ${data.pagamento[key]}</p>`;
     });
   }
 }
@@ -81,8 +81,5 @@ function preencherEstatisticas(transacoes: Transacao[]): void {
   }
   //----------------------------------------------------------------
   // Tipos de pagamentos
-  preencherLista(data.pagamento, "pagamentos");
-  //----------------------------------------------------------------
-  // Tipos de status
-  preencherLista(data.status, "status");
+  const pagamentoElement = document.querySelector<HTMLElement>("#pagamentos");
 }

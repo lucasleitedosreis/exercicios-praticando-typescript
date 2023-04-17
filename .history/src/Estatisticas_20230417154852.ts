@@ -31,6 +31,6 @@ export default class Estatisticas {
   //------------------------------------------------------------------------
   //retorna os status de pagamento e faz a soma de cada tipo usando o método countBy
   private setStatus() {
-    return countBy(this.transacoes.map(({ status }) => status));
+    console.log(countBy(this.transacoes.map(({ status }) => status)));
   }
 }

@@ -22,7 +22,6 @@
 // 6 - Normalize os dados da API se achar necessário.
 
 import Estatisticas from "./Estatisticas.js";
-import { CountList } from "./countBy";
 import fetchData from "./fetchData.js";
 import normalizarTransacao from "./normalizartransacao.js";
 
@@ -58,15 +57,7 @@ function preencherTabela(transacoes: Transacao[]): void {
 }
 
 handleData();
-//função generica para preencher os dados na tela
-function preencherLista(lista: CountList, containerId: string): void {
-  const containerElement = document.getElementById(containerId);
-  if (containerElement) {
-    Object.keys(lista).forEach((key) => {
-      containerElement.innerHTML += `<p>${key}: ${lista[key]}</p>`;
-    });
-  }
-}
+
 function preencherEstatisticas(transacoes: Transacao[]): void {
   const data = new Estatisticas(transacoes);
 
@@ -81,8 +72,10 @@ function preencherEstatisticas(transacoes: Transacao[]): void {
   }
   //----------------------------------------------------------------
   // Tipos de pagamentos
-  preencherLista(data.pagamento, "pagamentos");
-  //----------------------------------------------------------------
-  // Tipos de status
-  preencherLista(data.status, "status");
+  const pagamentoElement = document.querySelector<HTMLElement>("#pagamentos");
+  if (pagamentoElement) {
+    Object.keys(data.pagamento).forEach((pagamento) => {
+      console.log(pagamento.value);
+    });
+  }
 }

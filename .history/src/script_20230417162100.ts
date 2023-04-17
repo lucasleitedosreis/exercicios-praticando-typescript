@@ -58,7 +58,6 @@ function preencherTabela(transacoes: Transacao[]): void {
 }
 
 handleData();
-//função generica para preencher os dados na tela
 function preencherLista(lista: CountList, containerId: string): void {
   const containerElement = document.getElementById(containerId);
   if (containerElement) {
@@ -83,6 +82,6 @@ function preencherEstatisticas(transacoes: Transacao[]): void {
   // Tipos de pagamentos
   preencherLista(data.pagamento, "pagamentos");
   //----------------------------------------------------------------
-  // Tipos de status
+  // Tipos de pagamentos
   preencherLista(data.status, "status");
 }
