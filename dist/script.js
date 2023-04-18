@@ -43,6 +43,10 @@ function preencherEstatisticas(transacoes) {
             style: "currency",
             currency: "BRL",
         });
+        const diaElement = document.querySelector("#dia span");
+        if (diaElement) {
+            diaElement.innerText = `${data.melhorDia[0]}`;
+        }
     }
     preencherLista(data.pagamento, "pagamentos");
     preencherLista(data.status, "status");

@@ -79,6 +79,13 @@ function preencherEstatisticas(transacoes: Transacao[]): void {
       style: "currency",
       currency: "BRL",
     });
+
+    //----------------------------------------------------------------
+    //Melhor dia de vendas da semana
+    const diaElement = document.querySelector<HTMLElement>("#dia span");
+    if (diaElement) {
+      diaElement.innerText = `${data.melhorDia[0]}`;
+    }
   }
   //----------------------------------------------------------------
   // Tipos de pagamentos

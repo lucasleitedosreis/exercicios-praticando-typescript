@@ -30,33 +30,37 @@ export default class Estatisticas {
     }
     setSemana() {
         const semana = {
-            domingo: 0,
-            segunda: 0,
-            terca: 0,
-            quarta: 0,
-            quinta: 0,
-            sexta: 0,
-            sabado: 0,
+            ["Domingo"]: 0,
+            ["Segunda"]: 0,
+            ["Terça"]: 0,
+            ["Quarta"]: 0,
+            ["Quinta"]: 0,
+            ["Sexta"]: 0,
+            ["Sábado"]: 0,
         };
-        for (let diaSemana of this.transacoes) {
-            const day = diaSemana.data.getDay();
+        for (let i = 0; i < this.transacoes.length; i++) {
+            const day = this.transacoes[i].data.getDay();
             if (day === 0)
-                semana.domingo += 1;
+                semana["Domingo"] += 1;
             if (day === 1)
-                semana.segunda += 1;
+                semana["Segunda"] += 1;
             if (day === 2)
-                semana.terca += 1;
+                semana["Terça"] += 1;
             if (day === 3)
-                semana.quarta += 1;
+                semana["Quarta"] += 1;
             if (day === 4)
-                semana.quinta += 1;
+                semana["Quinta"] += 1;
             if (day === 5)
-                semana.sexta += 1;
-            if (day === 6)
-                semana.sabado += 1;
+                semana["Sexta"] += 1;
+            if (day === 5)
+                semana["Sábado"] += 1;
         }
         return semana;
     }
-    setMelhorDia() { }
+    setMelhorDia() {
+        return Object.entries(this.semana).sort((a, b) => {
+            return b[1] - a[1];
+        })[0];
+    }
 }
 //# sourceMappingURL=Estatisticas.js.map

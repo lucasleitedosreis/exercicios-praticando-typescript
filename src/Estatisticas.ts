@@ -7,7 +7,7 @@ function filtrarValor(transacao: Transacao): transacao is TransacaoValor {
   return transacao.valor !== null;
 }
 export default class Estatisticas {
-  private transacoes: Transacao[];
+  private transacoes;
   total;
   pagamento;
   status;
@@ -38,29 +38,34 @@ export default class Estatisticas {
     return countBy(this.transacoes.map(({ status }) => status));
   }
   //------------------------------------------------------------------------
-  //
+  //Fazer a contagem de vendas por dias da semana
   private setSemana() {
     const semana = {
-      domingo: 0,
-      segunda: 0,
-      terca: 0,
-      quarta: 0,
-      quinta: 0,
-      sexta: 0,
-      sabado: 0,
+      ["Domingo"]: 0,
+      ["Segunda"]: 0,
+      ["Terça"]: 0,
+      ["Quarta"]: 0,
+      ["Quinta"]: 0,
+      ["Sexta"]: 0,
+      ["Sábado"]: 0,
     };
-
-    for (let diaSemana of this.transacoes) {
-      const day = diaSemana.data.getDay();
-      if (day === 0) semana.domingo += 1;
-      if (day === 1) semana.segunda += 1;
-      if (day === 2) semana.terca += 1;
-      if (day === 3) semana.quarta += 1;
-      if (day === 4) semana.quinta += 1;
-      if (day === 5) semana.sexta += 1;
-      if (day === 6) semana.sabado += 1;
+    for (let i = 0; i < this.transacoes.length; i++) {
+      const day = this.transacoes[i].data.getDay();
+      if (day === 0) semana["Domingo"] += 1;
+      if (day === 1) semana["Segunda"] += 1;
+      if (day === 2) semana["Terça"] += 1;
+      if (day === 3) semana["Quarta"] += 1;
+      if (day === 4) semana["Quinta"] += 1;
+      if (day === 5) semana["Sexta"] += 1;
+      if (day === 5) semana["Sábado"] += 1;
     }
     return semana;
   }
-  private setMelhorDia() {}
+  //----------------------------------------------------------------
+  //Verificar o dia com mais vendas
+  private setMelhorDia() {
+    return Object.entries(this.semana).sort((a, b) => {
+      return b[1] - a[1];
+    })[0];
+  }
 }
