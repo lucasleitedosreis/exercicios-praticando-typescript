@@ -69,6 +69,7 @@ function preencherLista(lista: CountList, containerId: string): void {
 }
 function preencherEstatisticas(transacoes: Transacao[]): void {
   const data = new Estatisticas(transacoes);
+  console.log(data);
 
   //----------------------------------------------------------------
   // Total pagamentos
